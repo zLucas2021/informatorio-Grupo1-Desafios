@@ -1,6 +1,6 @@
 #Creacion de Constante de los estados de los inmuebles
 ESTADOS=['Disponible','Reservado','Vendido']
-
+###
 """
     Parametros:
         lista: list
