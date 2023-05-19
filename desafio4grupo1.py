@@ -1,5 +1,6 @@
 #Creacion de Constante de los estados de los inmuebles
 ESTADOS=['Disponible','Reservado','Vendido']
+
 """
     Parametros:
         lista: list
@@ -53,9 +54,9 @@ def controlar(inmueble):
     return inmueble.get('zona') in 'ABC' and inmueble.get('estado') in ESTADOS and inmueble.get('año') >=2000 and  inmueble.get('metros') >= 60 and inmueble.get('habitaciones') >=2
 """
     Parametros:
-    lista:list
-    inmueble: dict
-    estado:str
+        lista:list
+        inmueble: dict
+        estado:str
     Funcion:
         Recorrer la lista y si encuentra el inmuble y a su ves el estado es correcto lo cambia
 """
@@ -76,11 +77,12 @@ def cambiarEstado(lista,inmueble,estado):
 def buscar(lista,precio):
     listInmueble = []
     for i in range(len(lista)):
-        presupuesto = calcularprecio(lista[i])
-        if presupuesto <= precio:
-            inmueble = lista[i]
-            inmueble.update({'precio':presupuesto})
-            listInmueble.append(inmueble)
+        #se crea la variable inmueble y se trae de la lista el valor del inmueble
+        inmuebleaAgregar = lista[i]
+        presupuesto = calcularprecio(inmuebleaAgregar)
+        if presupuesto <= precio and inmuebleaAgregar.get('estado')!='Vendido':
+            inmuebleaAgregar.update({'precio':presupuesto})
+            listInmueble.append(inmuebleaAgregar)
     return listInmueble
 """
     Parametros:
@@ -89,12 +91,14 @@ def buscar(lista,precio):
         Calcula el presupuesto d eun inmueble dado inmueble
         """
 def calcularprecio(inmueble):
+    antiguedad = (2023-inmueble.get('año'))
+    precioTemporal=(inmueble.get('metros')*100 + inmueble.get('habitaciones')*500 + inmueble.get('garaje')*1500 ) * (1 - antiguedad /100 )
     if inmueble.get('zona') == 'A':
-        precio = (inmueble.get('metros')*100 + inmueble.get('habitaciones')*500 + inmueble.get('garaje')*1500 ) * (1 - (2023-inmueble.get('año')) /100 )
-    elif inmueble.get('zona') == 'B':
-        precio = (inmueble.get('metros')*100 + inmueble.get('habitaciones')*500 + inmueble.get('garaje')*1500 ) * (1 - (2023-inmueble.get('año')) /100 ) * 1.5
+        precio = precioTemporal
+    elif inmueble.get('zona') == 'B' :
+        precio = precioTemporal * 1.5
     elif inmueble.get('zona') == 'C':
-        precio = (inmueble.get('metros')*100 + inmueble.get('habitaciones')*500 + inmueble.get('garaje')*1500 ) * (1 - (2023-inmueble.get('año')) /100 ) * 2
+        precio = precioTemporal * 2
     return precio
 
 lista = [{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'},
@@ -105,16 +109,17 @@ lista = [{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona'
 ]
 
 
-"""listaNueva = buscar(lista,20000)
+"""listaNueva = buscar(lista,12000)
 print(f'Lista que se adecuan con el presupuesto: \n{listaNueva}')"""
 
 """cambiarEstado(lista,{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'},'Reservado')
-print(lista)"""
+print(lista[0])
 
-"""remover(lista,{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'})
-print(lista)
-agregar(lista,{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'})
-print(lista)"""
+remover(lista,{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'})"""
 
-"""modificar(lista , {'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'},{'año': 2020, 'metros': 200, 'habitaciones': 3, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'})
-print(lista)"""
+"""print(len(lista))
+agregar(lista,{'año': 2020, 'metros': 150, 'habitaciones': 2, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'})
+print(len(lista))"""
+"""print(len(lista))
+modificar(lista , {'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'},{'año': 2020, 'metros':40, 'habitaciones': 3, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'})
+print(len(lista))"""
