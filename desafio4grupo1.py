@@ -1,3 +1,10 @@
+#Desarrolladores Grupo 1 Informatorio Comision 2
+#Lucas Alfonsin
+#Guido Olivera
+#Melisa martineti
+#Guiliana leoni
+#Martina -------
+
 #Creacion de Constante de los estados de los inmuebles
 ESTADOS=['Disponible','Reservado','Vendido']
 
