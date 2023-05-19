@@ -1,6 +1,13 @@
+#Grupo 1 Comision 2 Informatorio
+#Integrantes:
+#Lucas Alfonsin
+#Guido Mauro Olivera
+#Melisa Martinetti
+#Giuliana Betina Leoni
+#
 #Creacion de Constante de los estados de los inmuebles
 ESTADOS=['Disponible','Reservado','Vendido']
-###
+
 """
     Parametros:
         lista: list
