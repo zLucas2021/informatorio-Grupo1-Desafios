@@ -1,9 +1,11 @@
-#Desarrolladores Grupo 1 Informatorio Comision 2
+
+#Grupo 1 Comision 2 Informatorio
+#Integrantes:
 #Lucas Alfonsin
-#Guido Olivera
-#Melisa martineti
-#Guiliana leoni
-#Martina -------
+#Guido Mauro Olivera
+#Melisa Martinetti
+#Giuliana Betina Leoni
+#
 
 #Creacion de Constante de los estados de los inmuebles
 ESTADOS=['Disponible','Reservado','Vendido']
