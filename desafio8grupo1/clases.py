@@ -12,6 +12,8 @@ class Usuario:
         self.contraseña = contraseña
         self.fecha_registro = fecha_registro
         self.avatar = avatar
+        self.estado = 'Activo'
+        self.online = False
 
     def login(self, username, contraseña):
         for usuario in self.usuarios_registrados:
