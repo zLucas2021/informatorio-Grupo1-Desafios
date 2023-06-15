@@ -34,3 +34,5 @@ class Colaborador(Usuario):
       def __init__(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, estado, online, es_colaborador):
         super().__init__(id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, estado, online)
         self.es_colaborador = es_colaborador
+
+#asd
