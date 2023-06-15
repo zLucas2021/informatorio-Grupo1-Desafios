@@ -2,7 +2,7 @@
 
 class Usuario:
     usuarios_registrados = []
-    def __init__(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, estado, online):
+    def __init__(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar):
         self.id = id
         self.nombre = nombre
         self.apellido = apellido
@@ -12,15 +12,27 @@ class Usuario:
         self.contraseña = contraseña
         self.fecha_registro = fecha_registro
         self.avatar = avatar
-        self.estado = estado
-        self.online = online
-def login(self, username, contraseña):
-        if self.username == username and self.contraseña == contraseña:
-            print("Inicio de sesión exitoso.")
-        else:
-            print("Los datos ingresados son incorrectos. Inténtalo nuevamente.")
+        self.estado = 'Activo'
+        self.online = False
 
-def registrar(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar):
+    def login(self, username, contraseña):
+        for usuario in self.usuarios_registrados:
+        if usuario.username == username and usuario.contraseña == contraseña:
+            self.id = usuario.id
+            self.nombre = usuario.nombre
+            self.apellido = usuario.apellido
+            self.telefono = usuario.telefono
+            self.email = usuario.email
+            self.fecha_registro = usuario.fecha_registro
+            self.avatar = usuario.avatar
+            self.estado = usuario.estado
+            self.online = usuario.online
+            print("Inicio de sesión exitoso.")
+            return True
+    print("Inténtalo nuevamente")
+    return False
+
+    def registrar(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar):
         nuevo_usuario = Usuario(id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, "activo", True)
         self.usuarios_registrados.append(nuevo_usuario)
         print("Se ha registrado exitosamente.")
