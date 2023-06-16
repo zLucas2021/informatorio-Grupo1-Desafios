@@ -41,8 +41,23 @@ class Publico(Usuario):
     def __init__(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, estado, online, es_publico):
         super().__init__(id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, estado, online)
         self.es_publico = es_publico
+     def comentar(self, id_articulo, contenido):
+        nuevo_comentario = Comentario(len(comentarios)+1, id_articulo, self.id, contenido, datetime.now(), "activo")
+        comentarios.append(nuevo_comentario)
+        print("Comentario publicado con éxito.")
+    
 
 class Colaborador(Usuario):
       def __init__(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, estado, online, es_colaborador):
         super().__init__(id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar, estado, online)
         self.es_colaborador = es_colaborador
+        
+      def comentar(self, id_articulo, contenido):
+        nuevo_comentario = Comentario(len(comentarios)+1, id_articulo, self.id, contenido, datetime.now(), "activo")
+        comentarios.append(nuevo_comentario)
+        print("Comentario publicado con éxito.")
+
+    def publicar_articulo(self, titulo, resumen, contenido, imagen):
+        nuevo_articulo = Articulo(len(articulos)+1, self.id, titulo, resumen, contenido, datetime.now(), imagen, "activo")
+        articulos.append(nuevo_articulo)
+        print("Artículo publicado con éxito.")  
