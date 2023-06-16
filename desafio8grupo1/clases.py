@@ -48,4 +48,8 @@ class Colaborador(Usuario):
     def __init__(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar):
         super().__init__(id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar)
         self.es_colaborador = True
-        #TODO:COMPLETAR METODO REGISTRAR
+    def registrar(self, id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar):
+        nuevo_usuario = Colaborador(id, nombre, apellido, telefono, username, email, contraseña, fecha_registro, avatar)
+        usuarios_registrados.append(nuevo_usuario)
+        print("Se ha registrado exitosamente.")    
+    
