@@ -1,5 +1,6 @@
 from clases import *
-
+from articulo import *
+from comentario import *
 def inicio():    
 	'''
 	Funcion inicio() que se ejecuta al ingresar a la aplicacion
@@ -98,13 +99,16 @@ def Menu(isPublico,usuario):
 	Funcion Menu(isPublico,usuario) recibe un parametro booleano(isPublico) y un objeto usuario para poder contar con el tipo de dato y tomar que tipo de opciones usar
 	Dependiendo si el usuario es publico o colaborador se le brindara las opciones
 	'''
-	print("A continuacion eliga que Operacion desea realizar :\n0-Salir\n1-Comentar")
+	print("A continuacion elija que Operacion desea realizar :\n0-Salir\n1-Comentar")
 	if isPublico:
 		opcion = input('Ingrese su Opcion:')
 		if opcion == '1':
-			print(f'{usuario.username}-Comentar')
+			print(f'{usuario.username}-Elegiste Comentar')
+			comentar(usuario)
+			return Menu(isPublico,usuario)
 		elif opcion == '0':
 			print(f'Hasta Pronto {usuario.nombre}!!')
+			return 
 		else:
 			print('Por favor ingrese el valor Correcto')
 			return Menu(isPublico,usuario)
@@ -112,16 +116,53 @@ def Menu(isPublico,usuario):
 		print("2-Publicar Articulo")
 		opcion = input('Ingrese su Opcion:')
 		if opcion == '1':
-			print(f'{usuario.username}-Comentar')
+			print(f'{usuario.username}-Elegiste Comentar')
+			comentar(usuario)
+			return Menu(isPublico,usuario)
 		elif opcion == '2':
-			print(f'{usuario.username}-Escribir Aritculo')
+			print(f'{usuario.username}-Elegiste escribir Aritculo')
+			crearArticulo(usuario)
+			return Menu(isPublico,usuario)
 		elif opcion == '0':
 			print(f'Hasta Pronto {usuario.nombre}!!')
+			return
 		else:
 			print('Por favor ingrese el valor Correcto')
 			return Menu(isPublico,usuario)
 
-print('Bienvenido a el Ejercicio 8 - Somos el Grupo 1\nEn que forma desea Ingresar\n1-Si ya tiene usuario y contraseña\n2-Si desea registrarse')
+def comentar(usuario):
+	'''funcion comentar(usuario) muestra todos los articulos y segun el articulo seleccionado pide los datos del comenatario e 
+	invoca a la funcion comentar de usuario'''
+	print(f'Listado de los articulos')
+	for i in articulos:
+		print(f'{i.id}-{i.titulo}')
+	while True:
+		opcion = input('Ingrese el numero del articulo: ')
+		if opcion.isnumeric():
+			opcion = int(opcion)
+			if opcion <= len(articulos) and opcion >=0:
+				contenido = input('Ingrese el comentario: ')
+				usuario.comentar(opcion,contenido)
+				return
+			else:
+				print('la opcion no esta en rango')
+		else:
+			print('Ingrese una opcion correcta')
+
+def crearArticulo(usuario):
+	'''funcion crearArticulo(usuario) pide los datos del articulo e 
+	invoca a la funcion publicar_articulo de usuario'''
+	titulo = input('Ingrese el titulo: ')
+	resumen = input('Ingrese el resumen: ')
+	contenido = input('Ingrese el contenido: ')
+	imagen = input('Ingrese imagen: ')
+	usuario.publicar_articulo(titulo,resumen,contenido,imagen)
+
 usuarioPrueba = Colaborador(1,'Pedro','Luque',36445545,'pedrito','pedro@gmail.com','1234','HOY','False')
+articulo = Articulo(0,1,'EL hombre araña','No hay','Tampoco',None,None,None)
+articulo2 = Articulo(1,1,'EL hombre de arena','No hay','Tampoco',None,None,None)
+articulos.append(articulo)
+articulos.append(articulo2)
 usuarios_registrados.append(usuarioPrueba)
+print('Bienvenido a el Ejercicio 8 - Somos el Grupo 1\nParticipantes que realizaron el desafio: Alfonsin Lucas - Leoni Giuliana - Martinetti Melisa - Olivera Guido\nEn que forma desea Ingresar\n1-Si ya tiene usuario y contraseña\n2-Si desea registrarse')
 inicio()
