@@ -1,3 +1,4 @@
+articulos = []
 class Articulo():
     def __init__(self, id, id_usuario, titulo, resumen,contenido,fecha_publicacion, imagen,estado):
         self.id=id

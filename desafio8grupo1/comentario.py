@@ -1,3 +1,4 @@
+comentarios = []
 class Comentario():
     def __init__(self, id, id_articulo, id_usuario, contenido, fecha_hora, estado):
         self.id = id
