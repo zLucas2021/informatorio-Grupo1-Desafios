@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css'%}">
+    <title>Desafio 10</title>
+    
+</head>
+<body>
+    <h1>Bienvenidos al Desafio 10 del Grupo 1</h1>
+    <sub>
+        Participantes del Grupo 1
+    </sub>
+    
+    <div class="participantes">
+        <div class="contparticipantes">
+            <div class="headinfo">
+                <!--Las imagenes deberian estar en media , pero no sabia como hacerlo funcionar-->
+                <img src="{% static 'lucas.jpg' %}" alt="Imagen">
+                <p class="nombre" id="nombreLucas">Lucas Alfonsin</p>
+            </div>
+            <div class="footinfo">
+                <span>Oriundo de Saenz Peña , de 21 años , Estudiando Desarrollo de Software.</span>
+            </div>
+        </div>
+        <div class="contparticipantes">
+            <div class="headinfo">
+                <img src="{% static 'giuli.jpg' %}" alt="Imagen">
+                <p class="nombre">Giuliana Leoni</p>
+            </div>
+            <div class="footinfo">
+                <span>Ciudad de Resistencia , de 26 años , Diseñadora gráfica</span>
+            </div>
+        </div>
+        <div class="contparticipantes">
+            <div class="headinfo">
+                <img src="{% static 'Guido.jpg' %}" alt="Imagen">
+                <p class="nombre">Guido Olivera</p>
+            </div>
+            <div class="footinfo">
+                <span>Ciudad de Resistencia , 21 años, estudiando Tecnicatura Universitaria en Programación en UTN.</span>
+            </div>
+        </div>
+        <div class="contparticipantes">
+            <div class="headinfo">
+                <img src="{% static 'nico.jpg' %}" alt="Imagen">
+                <p class="nombre">Nicolas Neira</p>
+            </div>
+            <div class="footinfo">
+                <span>Ciudad de Resistencia , de 22 años , Estudiando Ingenieria en Sistemas de Informacion en UTN</span>
+            </div>
+        </div>
+        <div class="contparticipantes">
+            <div class="headinfo">
+                <img src="{% static 'Meli.jpg' %}" alt="Imagen">
+                <p class="nombre">Melisa Martinetti</p>
+            </div>
+            <div class="footinfo">
+                <span>Oriunda Resistencia , de 27 años , Estudiando Licenciatura en Economia</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
